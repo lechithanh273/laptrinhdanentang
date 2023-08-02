@@ -1,0 +1,26 @@
+﻿@model QuanLyKho.Models.TheLoaiSP
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT LOẠI SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="form-horizontal">
+        <dt>Tên Loại Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tenloaisp)
+        </dd>
+
+    </dl>
+</div>
+
+<h1></h1>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.maloaisp }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-info" })
+</p>

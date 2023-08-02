@@ -1,0 +1,49 @@
+﻿@model QuanLyKho.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>BẠN CÓ MUỐN XÓA SẢN PHẨM NÀY KHÔNG?</h3>
+<div>
+    <hr />
+    <dl class="form-horizontal">
+        <dt>Tên Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tensp)
+        </dd>
+
+        <dt>Loại Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TheLoaiSP.tenloaisp)
+        </dd>
+
+        <dt>Giá Bán: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.giaban)
+        </dd>
+
+        <dt>Ngày Cập Nhật: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+        <dt>Số Lượng Tồn: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+    </dl>
+
+    <h1></h1>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-info" })
+        </div>
+    }
+</div>

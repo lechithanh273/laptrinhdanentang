@@ -1,0 +1,46 @@
+﻿@model QuanLyKho.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ĐĂNG NHẬP</h2>
+
+<div>
+    @Html.ActionLink("Trở Về Trang Chủ", "Index", "Home", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Đăng Ký", "DangKy", "NguoiDung", null, new { @class = "btn btn-danger" })
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">    
+
+        <div class="form-group">
+            Tên Đăng Nhập
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tendangnhap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tendangnhap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Mật Khẩu
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h1></h1>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng Nhập" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+

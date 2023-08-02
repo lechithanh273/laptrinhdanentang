@@ -1,0 +1,29 @@
+﻿@model QuanLyKho.Models.TheLoaiSP
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>BẠN CÓ MUỐN XÓA LOẠI SẢN PHẨM NÀY KHÔNG?</h3>
+<div>
+    <hr />
+    <dl class="form-horizontal">
+        <dt>Tên Loại Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tenloaisp)
+        </dd>
+    </dl>
+
+    <h1></h1>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-info" })
+        </div>
+    }
+</div>

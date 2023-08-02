@@ -1,0 +1,37 @@
+﻿@model IEnumerable<QuanLyKho.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>DANH SÁCH SẢN PHẨM</h2>
+<table class="table">
+    <tr>
+        <th>Mã Sản Phẩm</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Loại Sản Phẩm</th>
+        <th>Hình</th>
+        <th>Giá Bán</th>
+        <th>Ngày Cập Nhật</th>
+        <th>Số Lượng Tồn</th>
+        <th>Hành Động</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.masp)</td>
+            <td>@Html.DisplayFor(modelItem => item.tensp)</td>
+            <td>@Html.DisplayFor(modelItem => item.TheLoaiSP.tenloaisp)</td>
+            <td><img src="@item.hinh" alt="hinh thumnail" width="120px" height="170px"></td>
+            <td>@Html.DisplayFor(modelItem => item.giaban) VND</td>
+            <td>@Html.DisplayFor(modelItem => item.ngaycapnhat)</td>
+            <td>@Html.DisplayFor(modelItem => item.soluongton)</td>
+            <td>
+                @Html.ActionLink("Chi Tiết", "Detail", new { id = item.masp }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.masp }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.masp }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Thêm Sản Phẩm", "Create", "SanPham", new { @class = "btn btn-info" })

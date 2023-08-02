@@ -1,0 +1,51 @@
+﻿@model QuanLyKho.Models.SanPham
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT CỦA SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="form-horizontal">
+        <dt>Tên Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tensp)
+        </dd>
+
+        <dt>Hình: </dt>
+        <dd>
+            <img src="@Html.DisplayFor(model => model.hinh)" alt="hinh thumnail" width="120px" height="170px">
+        </dd>
+
+        <dt>Loại Sản Phẩm: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TheLoaiSP.tenloaisp)
+        </dd>
+
+        <dt>Giá Bán: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.giaban)
+        </dd>
+
+        <dt>Ngày Cập Nhật: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+        <dt>Số Lượng Tồn: </dt>
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+    </dl>
+</div>
+
+<h1></h1>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.masp }, new { @class = "btn btn-success" }) 
+    @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-info" })
+</p>

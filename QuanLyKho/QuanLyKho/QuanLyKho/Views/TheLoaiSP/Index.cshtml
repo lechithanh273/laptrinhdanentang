@@ -1,0 +1,28 @@
+﻿@model IEnumerable<QuanLyKho.Models.TheLoaiSP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DANH SÁCH CÁC LOẠI SẢN PHẨM</h2>
+<table class="table">
+    <tr>
+        <th>Mã Loại Sản Phẩm</th>
+        <th>Tên Loại Sản Phẩm</th>
+        <th>Hành Động</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.maloaisp)</td>
+            <td>@Html.DisplayFor(modelItem => item.tenloaisp)</td>
+
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.maloaisp }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Chi Tiết", "Detail", new { id = item.maloaisp }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.maloaisp }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Thêm Loại Sản Phẩm", "Create", "TheLoaiSP", new { @class = "btn btn-info" })
